@@ -89,3 +89,5 @@ verification, group-aware evaluation, powered shift tests, real datasets and ind
 studies remain future work. There is no clinical, financial or equipment execution path.
 The existing Apache-2.0 license is retained; the vendored canonical code is from the
 Apache-2.0 ResearchOs repository.
+
+**∞**
