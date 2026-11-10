@@ -1,5 +1,14 @@
 # TruthAI Uncertainty and Calibration
 
+<!-- research-workbench:start -->
+## Research workbench
+
+[Open this repository's private workbench](https://tltmgnt-truthai-uncertainty-and-calibration.troturn31.chatgpt.site) · [All repository workbenches](https://tltmgnt-research-workbenches.troturn31.chatgpt.site)
+
+The hosted interface requires ChatGPT sign-in and access to the private Site. It supports browser-local research records, evidence fingerprints and workspace export. It is a prototype: no live AI model or repository backend is connected, and it does not establish external validation.
+<!-- research-workbench:end -->
+
+
 Offline binary probability evaluation with an executable ResearchOS evidence adapter,
 versioned claim state, rejection ledger and exact replay bundles. This is a bounded
 research implementation. It does not establish population calibration or independent
