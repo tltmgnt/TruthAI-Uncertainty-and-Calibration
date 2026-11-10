@@ -1,6 +1,6 @@
 # Topology compatibility and curriculum v2 — TruthAI-Uncertainty-and-Calibration
 
-Version 2 adapts the explicit-molecular-graph teaching pattern to this repository's actual role. This is documentation and a learning/decision framework; it introduces no mathematical engine, runtime dependency or operational permission.
+The verified edition of version 2 adapts the explicit-molecular-graph teaching pattern to this repository's actual role. This edition adds executable learning checks and reviewed answer keys. It does not introduce a new topology engine or grant operational permission.
 
 ## Repository decision
 
@@ -40,42 +40,57 @@ Prerequisites: basic programming, sets, functions and graph vocabulary. Work in 
 | 5. Comparison | Justify mathematical necessity and cost. | Complete the six-criterion card for the existing approach and one proposed alternative; record unknowns honestly. | Evidence-backed recommendation with baseline and explicit veto conditions. |
 | 6. Reproduction | Communicate the bounded result. | Reproduce the capstone using existing offline fixtures and record software version, inputs, outputs and limitations. | Reviewable notebook or report distinguishing computation, replay, independent evaluation and authorization. |
 
-## Source-linked reading laboratory
+## Worked reasoning and source explanation
 
-The table is a guided selection of source lines, not an assertion that the whole repository is covered. Line numbers refer to the inspected source blob `4bbfee3499ea4a56295b64312fb2750568b114eb` in [uncertainty_calibration/metrics.py](../../uncertainty_calibration/metrics.py). Recheck anchors after source changes.
+The shipped four-row fixture has Brier score .225, accuracy .5 and selective coverage .5; the accepted half has accuracy 1. An outcome of 1 assigned probability 0 has infinite log loss, represented by null plus positive_infinity rather than clipped into a finite score. With no accepted predictions selective accuracy is null. None of these finite-sample calculations establishes population calibration.
 
-| Line | Statement | Learning check |
+Read the [inspected source](https://github.com/tltmgnt/TruthAI-Uncertainty-and-Calibration/blob/adcce2d956f8e5be94311d22de567c1c3bcb6642/uncertainty_calibration/metrics.py) alongside the [executable answer key](../../curriculum/lab.py). The source link is pinned to the inspected revision; the lab and any explicitly described fix are in this change.
+
+## Run the worked laboratory
+
+From the repository root, with Python 3.12 (the recorded local version is 3.12.14):
+
+```sh
+python curriculum/lab.py --verify
+```
+
+The lab checks **9 explicit expectations** against existing repository functions. It prints a JSON case report and exits nonzero on a wrong result. `--verify` additionally compares the entire case report with [expected.json](../../curriculum/expected.json). Read the input and predict each result before opening the answer key. No API account, credentials, model download, trading action or equipment connection is needed.
+
+| Checkpoint | Expected answer |
+| --- | --- |
+| hand-computed Brier score | `0.225` |
+| descriptive accuracy | `0.5` |
+| selective coverage | `0.5` |
+| selective accuracy | `1.0` |
+| impossible observation has infinite log loss | `"positive_infinity"` |
+| infinity is explicit null, not clipped | `null` |
+| empty abstention leaves accuracy undefined | `null` |
+| no population calibration established | `false` |
+| boolean probability rejected | `"ValueError"` |
+
+The comparisons above encode independently specified small examples and contract expectations; a passing answer key is not evidence of complete domain correctness. The original functions and their existing test suites remain the authority for broader supported contracts.
+
+## Learner tasks and assessment rubric
+
+1. Before running the lab, predict every expected answer and derive one numeric result or state transition by hand.
+2. Explain the worked reasoning above using the referenced source, including the rejected or counterexample case.
+3. Add a new valid example and a nearby failing example. Explain which assumption changes, then compare against the existing implementation. For concept/static labs, keep the result explicitly at that level.
+4. Complete the scorecard for a proposed extension and a simpler baseline. Leave measurements unknown until collected; a task that the baseline already solves is not evidence for additional topology.
+
+| Competency | Points | Full-credit evidence |
 | --- | --- | --- |
-| [9](../../uncertainty_calibration/metrics.py#L9) | `def fields(obj, names):` | State the input/output contract and trace one normal and one failing case. |
-| [11](../../uncertainty_calibration/metrics.py#L11) | `raise ValueError('Missing or unknown fields')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [14](../../uncertainty_calibration/metrics.py#L14) | `def probability(value):` | State the input/output contract and trace one normal and one failing case. |
-| [16](../../uncertainty_calibration/metrics.py#L16) | `raise ValueError('Finite probability in [0,1] required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [17](../../uncertainty_calibration/metrics.py#L17) | `return value` | Predict the returned value and distinguish a computed result from authorization. |
-| [20](../../uncertainty_calibration/metrics.py#L20) | `def validate(data):` | State the input/output contract and trace one normal and one failing case. |
-| [21](../../uncertainty_calibration/metrics.py#L21) | `fields(data, ('schema_version', 'label', 'calibration', 'evaluation', 'bins',` | Separate type, shape and value checks; test a missing field and an invalid value. |
-| [23](../../uncertainty_calibration/metrics.py#L23) | `if type(data['schema_version']) is not int or data['schema_version'] != 1:` | Separate type, shape and value checks; test a missing field and an invalid value. |
-| [24](../../uncertainty_calibration/metrics.py#L24) | `raise ValueError('Unsupported schema version')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [26](../../uncertainty_calibration/metrics.py#L26) | `raise ValueError('Short nonempty dataset label required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [28](../../uncertainty_calibration/metrics.py#L28) | `raise ValueError('Between 2 and 50 bins required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [30](../../uncertainty_calibration/metrics.py#L30) | `raise ValueError('alpha must be strictly between zero and one')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [32](../../uncertainty_calibration/metrics.py#L32) | `raise ValueError('Abstention confidence threshold must be at least .5')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [35](../../uncertainty_calibration/metrics.py#L35) | `raise ValueError('Evidence expiry must follow assessment time')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [40](../../uncertainty_calibration/metrics.py#L40) | `raise ValueError('Each split requires 1 to 10000 rows')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [45](../../uncertainty_calibration/metrics.py#L45) | `raise ValueError('Unique nonempty row IDs across splits required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [49](../../uncertainty_calibration/metrics.py#L49) | `raise ValueError('Binary integer outcomes required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [52](../../uncertainty_calibration/metrics.py#L52) | `def reliability(rows, bins):` | State the input/output contract and trace one normal and one failing case. |
-| [66](../../uncertainty_calibration/metrics.py#L66) | `return result, ece` | Predict the returned value and distinguish a computed result from authorization. |
-| [69](../../uncertainty_calibration/metrics.py#L69) | `def evaluate(data):` | State the input/output contract and trace one normal and one failing case. |
-| [94](../../uncertainty_calibration/metrics.py#L94) | `return {'schema_version': 1, 'label': data['label'],` | Separate type, shape and value checks; test a missing field and an invalid value. |
-## Assessment and verification
+| Model and contract | 0–3 | Correct objects, relation direction, labels/units, input bounds and missingness. |
+| Derivation and trace | 0–3 | Hand derivation agrees with the specified fixture; source steps explain why. |
+| Counterexample | 0–3 | New failing/boundary case has a justified expected result; rejection is not suppressed. |
+| Scope and necessity | 0–3 | Distinguishes software behavior from validation and compares an explicit simpler alternative. |
 
-A learner must explain the model, trace the capstone, identify a counterexample and state the scope boundary. Assess these four competencies equally; a numerical score cannot compensate for an unsupported scientific or operational claim.
+Completion requires at least 10/12 and no zero in scope/necessity. A runnable answer key alone is not evidence that a learner achieved this competency. No learner-outcome study has been performed.
 
-Relevant existing checks:
+## Verification evidence and maintenance
 
-- [tests/test_calibration.py](../../tests/test_calibration.py)
+[VALIDATION.json](../../curriculum/VALIDATION.json) records the inspected base revision, local Python version, source/fixture hashes, lab/answer hashes, case count and exit codes. All cases were executed locally. An in-memory copy with a deliberately wrong comparison was also executed and returned nonzero, checking that the grading failure path is active. Those injected failures are harness checks, not scientific adversarial evaluations.
 
-Follow [README](../../README.md) for environment and installed-package instructions. Read scripts before execution; source-reading exercises do not authorize provider calls, model downloads, live orders, hardware actions or messages. Synthetic fixtures establish software behavior only. This documentation change does not report those exercises as already executed.
+The dedicated [curriculum workflow](../../.github/workflows/curriculum.yml) runs the same `--verify` command on relevant pull-request changes. CI status is reported by GitHub; the local record does not assert that remote CI passed. Existing full-suite and installed-package requirements still apply to runtime changes. When source or fixture semantics change, inspect the diff and rederive answers before updating expected.json. Never regenerate expected answers solely to silence a failure. Refresh the local validation record after an actual run; do not rewrite its recorded base revision as if a new run occurred.
 
 ## Interoperability and adoption gate
 
