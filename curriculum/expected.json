@@ -1,0 +1,62 @@
+{
+  "case_count": 9,
+  "cases": [
+    {
+      "actual": 0.225,
+      "case": "hand-computed Brier score",
+      "expected": 0.225,
+      "passed": true
+    },
+    {
+      "actual": 0.5,
+      "case": "descriptive accuracy",
+      "expected": 0.5,
+      "passed": true
+    },
+    {
+      "actual": 0.5,
+      "case": "selective coverage",
+      "expected": 0.5,
+      "passed": true
+    },
+    {
+      "actual": 1.0,
+      "case": "selective accuracy",
+      "expected": 1.0,
+      "passed": true
+    },
+    {
+      "actual": "positive_infinity",
+      "case": "impossible observation has infinite log loss",
+      "expected": "positive_infinity",
+      "passed": true
+    },
+    {
+      "actual": null,
+      "case": "infinity is explicit null, not clipped",
+      "expected": null,
+      "passed": true
+    },
+    {
+      "actual": null,
+      "case": "empty abstention leaves accuracy undefined",
+      "expected": null,
+      "passed": true
+    },
+    {
+      "actual": false,
+      "case": "no population calibration established",
+      "expected": false,
+      "passed": true
+    },
+    {
+      "actual": "ValueError",
+      "case": "boolean probability rejected",
+      "expected": "ValueError",
+      "passed": true
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Synthetic curriculum checks only",
+  "status": "PASS"
+}
