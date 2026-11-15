@@ -1,0 +1,27 @@
+{
+  "case_count": 9,
+  "command": "python curriculum/lab.py --verify",
+  "exit_code": 0,
+  "expected_sha256": "80a48f37ac583ffc0a67a449c2579bacac371d7a9d17ec8360dcc18ca3e62676",
+  "lab_sha256": "89e69b435eeb83dc92a70226ee6de53466b0f8194c72760ae723d0fab3ee5f82",
+  "python": "3.12.14",
+  "repository": "tltmgnt/TruthAI-Uncertainty-and-Calibration",
+  "schema_version": 1,
+  "scope": "Local synthetic curriculum validation on the recorded source snapshot; not complete repository CI, learning outcomes, independent scientific reproduction or deployment approval",
+  "source_and_fixture_sha256": {
+    "examples/binary.json": "206f20463f7325310d8b9f910c6e2b6f6f398131c3660aec5024771180600130",
+    "uncertainty_calibration/__init__.py": "0b77021f79b711b9499c1096d12ed0a1199f7f51ab383cee828f5a240bc55265",
+    "uncertainty_calibration/__main__.py": "df49fc4c1011220e17a86ee5474664add976f935075ee5dc82503e0a08b5a2d1",
+    "uncertainty_calibration/_tect/__init__.py": "532852937b0d9ae7a09360426373a909171eedcceda6c7b814397a4545132dc3",
+    "uncertainty_calibration/_tect/__main__.py": "01b079617de0074b77c6746068d51b4921ce6fbb157778d9a10135b966ddb2fb",
+    "uncertainty_calibration/_tect/core.py": "f00f5c34be6d0e2cc107754b46da2f94fd2a2b43a7cf08a86cae4c114dec520e",
+    "uncertainty_calibration/_tect/experiments.py": "78716550613dcc902190a2c10a9c56070bd6e6f4a2b4f1db9617295a9c90e519",
+    "uncertainty_calibration/_tect/io.py": "4ee33f9733fc3225072fe9602e95e14a98d2968bf7903fcc660c1fc914a34383",
+    "uncertainty_calibration/_tect/pilot.py": "d029c7aee3d6e5adf302ed7caa15ec4934ca79c0a8be86b55124e6939d2663c5",
+    "uncertainty_calibration/bundle.py": "34381a7c0a03f42bb1a184fae8f54e2c346c0cfefb959e1b775541a69ca39303",
+    "uncertainty_calibration/metrics.py": "89cddb8ff503af77c2575e0097996eac3616f8082aa9cb06841ea0ae4f7e4924",
+    "uncertainty_calibration/researchos.py": "eab0420a191c7df61fe74c6b7915bad84d3ceae5c51ecda705288f2239b42d22"
+  },
+  "source_base_commit": "adcce2d956f8e5be94311d22de567c1c3bcb6642",
+  "wrong_expectation_exit_code": 1
+}
